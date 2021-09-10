@@ -88,13 +88,13 @@ class Player:
                 break
         game.board.append([self.hand.pop(index - 1), None])
 
-    def beat_card(self, game, deck):  # TODO: change names of variables
+    def beat_card(self, game, deck):  
         result = False
         while result is not True:
             index_hand = input("""Please write index of card or "Take": """)
             if isinstance(index_hand, str):
                 if index_hand == "Take":
-                    for turn in game.board:  # TODO: check for two variables instead of nested loop
+                    for turn in game.board:  
                         for card in turn:
                             if card is not None:
                                 self.hand.append(card)
@@ -127,7 +127,7 @@ class Computer(Player):
     def __init__(self):
         super().__init__()
 
-    def make_move(self, game, deck):  # TODO: Throws trumps
+    def make_move(self, game, deck):  
         lowest_card = self.hand[0]
         for card in self.hand:
             if card.value < lowest_card.value and card.suit != deck.trump_card():
@@ -152,7 +152,7 @@ class Computer(Player):
                             self.took = False
                             break
         if not result:
-            for turn in game.board:  # TODO: check for two variables instead of nested loop
+            for turn in game.board:  
                 for card in turn:
                     if card is not None:
                         self.hand.append(card)
